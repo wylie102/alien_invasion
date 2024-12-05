@@ -44,11 +44,7 @@ class AlienInvasion:
 
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
-        elif event.key == pygame.K_UP:
+        if event.key == pygame.K_UP:
             self.ship.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = True
@@ -59,11 +55,7 @@ class AlienInvasion:
 
     def _check_keyup_events(self, event):
         """Respond to key releases"""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = False
-        elif event.key == pygame.K_UP:
+        if event.key == pygame.K_UP:
             self.ship.moving_up = False
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
@@ -81,8 +73,9 @@ class AlienInvasion:
 
         # Get rid of bullets that have disappeared.
         for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
+            if bullet.rect.left > self.screen.get_rect().right:
                 self.bullets.remove(bullet)
+        print(len(self.bullets))
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
