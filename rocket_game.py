@@ -5,7 +5,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 
-class AlienInvasion:
+class RocketGame:
     """Overall class to manage game assets and behavior."""
 
     def __init__(self):
@@ -72,5 +72,5 @@ class AlienInvasion:
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
-    ai = AlienInvasion()
-    ai.run_game()
+    rg = RocketGame()
+    rg.run_game()
