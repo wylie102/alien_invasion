@@ -11,7 +11,7 @@ class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
     def __init__(self):
-        """Initialize the game, and create game resources."""
+        """Initialise the game, and create game resources."""
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
@@ -63,10 +63,6 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
-        elif event.key == pygame.K_UP:
-            self.ship.moving_up = False
-        elif event.key == pygame.K_DOWN:
-            self.ship.moving_down = False
     
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
