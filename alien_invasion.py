@@ -33,7 +33,7 @@ class AlienInvasion:
 
         self._create_fleet()
 
-        # Start Alien invasion in an active state.
+        # Start Alien Invasion in an active state.
         self.game_active = True
 
     def run_game(self):
@@ -117,7 +117,7 @@ class AlienInvasion:
         self._check_aliens_bottom()
 
     def _check_aliens_bottom(self):
-        """Check if any aliens have reached the bottoms of the screen."""
+        """Check if any aliens have reached the bottom of the screen."""
         for alien in self.aliens.sprites():
             if alien.rect.bottom >= self.settings.screen_height:
                 # Treat this the same as if the ship got hit.
