@@ -6,6 +6,7 @@ from settings import Settings
 from star import Star
 from random import randint
 
+
 class Stars:
     """Class for Stars game"""
 
@@ -39,7 +40,7 @@ class Stars:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-    
+
     def _create_constellation(self):
         """Creates a constellation of stars."""
         # Create a star and keep adding stars until there's no room left.
@@ -48,11 +49,9 @@ class Stars:
         star_width, star_height = star.rect.size
 
         current_x, current_y = star_width, star_height
-        num_stars_x = (
-            self.settings.screen_width) // (2 * star_width)
-        num_rows = (
-            self.settings.screen_height) // (2 * star_height)
-        
+        num_stars_x = (self.settings.screen_width) // (2 * star_width)
+        num_rows = (self.settings.screen_height) // (2 * star_height)
+
         for row in range(num_rows):
             for col in range(num_stars_x):
                 self._create_star(col * 2 * star_width, row * 2 * star_height)
@@ -65,7 +64,7 @@ class Stars:
         new_star.rect.x = x_position
         new_star.rect.y = y_position + randint(-10, 10)
         self.stars.add(new_star)
-    
+
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
@@ -73,7 +72,8 @@ class Stars:
 
         pygame.display.flip()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     s = Stars()
     s.run_game()

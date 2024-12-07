@@ -2,9 +2,10 @@ import sys
 
 import pygame
 
+
 class KeysGame:
     """A game where keys are displayed on the screen."""
-    
+
     def __init__(self):
         """Initialises the game and creates game resources"""
         pygame.init()
@@ -21,7 +22,7 @@ class KeysGame:
             self._check_events()
             self._update_screen()
             self.clock.tick(60)
-    
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -32,14 +33,15 @@ class KeysGame:
                     sys.exit()
                 else:
                     print(event.key)
-    
+
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.bg_color)
-            
+
         pygame.display.flip()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     kg = KeysGame()
     kg.run_game()

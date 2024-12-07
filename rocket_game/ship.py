@@ -1,5 +1,6 @@
 import pygame
 
+
 class Ship:
     """A class to manage the ship."""
 
@@ -10,13 +11,13 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get it's rect.
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load("images/ship.bmp")
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom centre of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
 
-        #Store a float for the ship's exact horizontal position.
+        # Store a float for the ship's exact horizontal position.
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
 
@@ -36,7 +37,7 @@ class Ship:
             self.y += self.settings.ship_speed
         if self.moving_up and self.rect.top > 0:
             self.y -= self.settings.ship_speed
-        
+
         # Update rect object from self.x.
         self.rect.x = self.x
         self.rect.y = self.y

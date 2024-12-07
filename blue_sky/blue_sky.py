@@ -4,8 +4,10 @@ import pygame
 
 from ship import Ship
 
+
 class BlueSky:
     """A simple game with a blue background and a single player object."""
+
     def __init__(self):
         """Initialises the game attributes."""
         pygame.init()
@@ -17,7 +19,7 @@ class BlueSky:
 
         # Set the background color.
         self.bg_color = (0, 0, 255)
-    
+
     def run_game(self):
         """Start the main loop for the game"""
         while True:
@@ -26,7 +28,7 @@ class BlueSky:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            #Redraw the screen during each pass through the loop.
+            # Redraw the screen during each pass through the loop.
             self.screen.fill(self.bg_color)
             self.ship.blitme()
 
@@ -34,7 +36,8 @@ class BlueSky:
             pygame.display.flip()
             self.clock.tick(60)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Make a game instance and run the game.
     bs = BlueSky()
     bs.run_game()

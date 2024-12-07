@@ -6,6 +6,7 @@ from settings import Settings
 from raindrop import Raindrop
 from random import randint
 
+
 class RaindropGame:
     """Class for Raindrops game"""
 
@@ -54,7 +55,9 @@ class RaindropGame:
         num_raindrops_x = self.settings.screen_width // (2 * raindrop_width)
         num_rows = self.settings.screen_height // (2 * raindrop_height)
 
-        print(f"Screen width: {self.settings.screen_width}, Screen height: {self.settings.screen_height}")
+        print(
+            f"Screen width: {self.settings.screen_width}, Screen height: {self.settings.screen_height}"
+        )
         print(f"Number of raindrops per row: {num_raindrops_x}")
         print(f"Number of rows: {num_rows}")
 
@@ -62,7 +65,9 @@ class RaindropGame:
             for col in range(num_raindrops_x):
                 x_position = col * 2 * raindrop_width
                 y_position = row * 2 * raindrop_height
-                self._create_raindrop(x_position + randint(-10,10), y_position + randint(-10, 10))
+                self._create_raindrop(
+                    x_position + randint(-10, 10), y_position + randint(-10, 10)
+                )
 
     def _create_raindrop(self, x_position, y_position):
         """Create a raindrop and place it in the shower."""
@@ -77,7 +82,7 @@ class RaindropGame:
         for raindrop in self.raindrops.sprites():
             if raindrop.check_edges():
                 raindrop.y = -raindrop.rect.height
-                
+
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
@@ -85,7 +90,8 @@ class RaindropGame:
 
         pygame.display.flip()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     rg = RaindropGame()
     rg.run_game()

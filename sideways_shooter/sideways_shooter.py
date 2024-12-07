@@ -81,7 +81,17 @@ class SidewaysShooter:
         for bullet in self.bullets.copy():
             if bullet.rect.left > self.screen.get_rect().right:
                 self.bullets.remove(bullet)
-        print(len(self.bullets))
+
+        self._check_bullet_alien_collisions()
+
+    def _check_bullet_alien_collisions(self):
+        """Respond to bullet-alien collisions."""
+        # Remove any bullets and aliens that have collided.
+        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        if not self.aliens:
+            # Destroy existing bullets and create a new fleet.
+            self.bullets.empty()
+            self._create_fleet()
 
     def _create_fleet(self):
         """Creates a fleet of aliens"""
@@ -95,9 +105,9 @@ class SidewaysShooter:
             while current_y < (self.settings.screen_height - (alien_height * 2)):
                 self._create_alien(current_x, current_y)
                 current_y += 2 * alien_height
-            
+
             current_y = alien_height
-            current_x -= (2 * alien_width)
+            current_x -= 2 * alien_width
 
     def _update_aliens(self):
         """Check if the fleet is at an edge, then update positions."""
@@ -110,14 +120,14 @@ class SidewaysShooter:
         new_alien.rect.x = x_position
         new_alien.rect.y = y_position
         self.aliens.add(new_alien)
-    
+
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
         for alien in self.aliens.sprites():
             if alien.check_edges():
                 self._change_fleet_direction()
                 break
-    
+
     def _change_fleet_direction(self):
         """Drop the entire fleet and change the fleet's direction."""
         for alien in self.aliens.sprites():

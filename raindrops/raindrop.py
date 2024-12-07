@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 class Raindrop(Sprite):
     """A class to represent a single raindrop in a rainstorm."""
 
@@ -10,11 +11,11 @@ class Raindrop(Sprite):
         self.screen = rg_game.screen
         self.settings = rg_game.settings
 
-        #Load the raindrop image and set it's attribute.
-        self.image = pygame.image.load('images/raindrop.png')
+        # Load the raindrop image and set it's attribute.
+        self.image = pygame.image.load("images/raindrop.png")
         self.rect = self.image.get_rect()
 
-        #Start each new raindrop near the top left of the screen
+        # Start each new raindrop near the top left of the screen
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
 

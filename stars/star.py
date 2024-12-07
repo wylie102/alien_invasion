@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 class Star(Sprite):
     """A class to represent a single star in a constellation."""
 
@@ -9,11 +10,11 @@ class Star(Sprite):
         super().__init__()
         self.screen = s_game.screen
 
-        #Load the star image and set it's attribute.
-        self.image = pygame.image.load('images/star.png')
+        # Load the star image and set it's attribute.
+        self.image = pygame.image.load("images/star.png")
         self.rect = self.image.get_rect()
 
-        #Start each new star near the top left of the screen
+        # Start each new star near the top left of the screen
         self.rect.x = self.rect.width
         self.rect.x = self.rect.height
 
