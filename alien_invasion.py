@@ -40,6 +40,8 @@ class AlienInvasion:
         # Make the Play button.
         self.play_button = Button(self, "Play")
 
+        #
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -104,6 +106,7 @@ class AlienInvasion:
         self.aliens.empty()
         self._create_fleet()
         self.ship.center_ship()
+        self.settings.initialize_dynamic_settings()
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
@@ -131,6 +134,7 @@ class AlienInvasion:
             # Destroy existing bullets and create a new fleet.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         """Check if the fleet is at an edge, then update positions."""
