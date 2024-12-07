@@ -5,6 +5,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 
+
 class RocketGame:
     """Overall class to manage game assets and behavior."""
 
@@ -28,7 +29,7 @@ class RocketGame:
             self.ship.update()
             self._update_screen()
             self.clock.tick(60)
-        
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -67,10 +68,11 @@ class RocketGame:
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
-            
+
         pygame.display.flip()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Make a game instance, and run the game.
     rg = RocketGame()
     rg.run_game()
